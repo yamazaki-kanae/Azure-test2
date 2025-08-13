@@ -6,5 +6,13 @@
 </head>
 <body>
     <h1>こんにちは、Azure Static Web Apps!</h1>
+    <p id="api-response">APIからの応答を待っています...</p>
+    <script>
+        (async function() {
+            const response = await fetch('/api/message');
+            const data = await response.json();
+            document.getElementById('api-response').textContent = data.text;
+        })();
+    </script>
 </body>
 </html>
